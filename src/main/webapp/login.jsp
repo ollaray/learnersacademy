@@ -1,24 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ 
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
+	
+	<base href="<%=basePath%>">
 	<meta charset="ISO-8859-1">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Learner's Academy:: Login</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="../asset/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../asset/vendors/iconfonts/ionicons/dist/css/ionicons.css">
-    <link rel="stylesheet" href="../asset/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="../asset/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="../asset/vendors/css/vendor.bundle.addons.css">
+    <link rel="stylesheet" href="asset/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="asset/vendors/iconfonts/ionicons/dist/css/ionicons.css">
+    <link rel="stylesheet" href="asset/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="asset/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="asset/vendors/css/vendor.bundle.addons.css">
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="../asset/css/shared/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/asset/css/shared/style.css" />
     
     <!-- endinject -->
     <link rel="shortcut icon" href="asset/images/favicon.icoxxx" />
@@ -30,6 +37,7 @@
           <div class="row w-100">
             <div class="col-lg-4 mx-auto">
               <div class="auto-form-wrapper">
+              	${message}
                 <form method="post" action="login">
                   <div class="form-group">
                     <label class="label">Email</label>

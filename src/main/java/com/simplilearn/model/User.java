@@ -13,7 +13,7 @@ public class User {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	@Column(name="firstname")
 	private String firstname;
 	@Column(name="lastname")
@@ -29,7 +29,7 @@ public class User {
 		
 	}
 	
-	public User(int id, String firstname, String lastname, String email, String password, String gender) {
+	public User(Integer id, String firstname, String lastname, String email, String password, String gender) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -38,7 +38,7 @@ public class User {
 		this.password = password;
 		this.gender = gender;
 	}
-	public User(int id, String firstname, String lastname, String email, String gender) {
+	public User(Integer id, String firstname, String lastname, String email, String gender) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -49,7 +49,7 @@ public class User {
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getFirstname() {

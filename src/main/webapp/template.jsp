@@ -21,7 +21,23 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-    		<%@include file="dashboard.jsp" %>
+        	<%
+        	String pageid = request.getParameter("id");
+        		if(pageid != null && pageid.equals("da")){
+        		
+        	%>	
+    			<%@include file="dashboard.jsp" %>
+    		<% }else if(pageid !=null && pageid.equals("st")){ %>
+    			<%@include file="students.jsp" %>
+   			<% }else if(pageid !=null && pageid.equals("te")){ %>
+    			<%@include file="teachers.jsp" %>
+    		<% }else if(pageid !=null && pageid.equals("su")){ %>
+	    		<%@include file="subjects.jsp" %>
+	    	<% }else if(pageid !=null && pageid.equals("cl")){ %>
+	    		<%@include file="classlist.jsp" %>
+    		<% }else{ %>
+    			<h1> PAGE NOT FOUND</h1>
+    		<% } %>
         </div>
       </div>
      
