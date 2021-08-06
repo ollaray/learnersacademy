@@ -31,18 +31,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="shortcut icon" href="asset/images/favicon.icoxxx" />
 </head>
   <body>
+  
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
+       
         <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
+      
           <div class="row w-100">
+        
             <div class="col-lg-4 mx-auto">
+      			<h4 class="mx-auto" style="color:#FFF;font-weight:bold;text-align:center">LEARNER'S ACADEMY ADMIN PORTAL</h4>
               <div class="auto-form-wrapper">
-              	${message}
+              	<span style="color:red">${message}</span>
                 <form method="post" action="login">
                   <div class="form-group">
                     <label class="label">Email</label>
                     <div class="input-group">
-                      <input type="email"  name="email" class="form-control" placeholder="Input your email">
+                      <input type="email"  name="email" class="form-control" value="admin@gmail.com" placeholder="Input your email">
                       <div class="input-group-append">
                         <span class="input-group-text">
                           <i class="mdi mdi-check-circle-outline"></i>
@@ -53,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <div class="form-group">
                     <label class="label">Password</label>
                     <div class="input-group">
-                      <input type="password" name="pass" class="form-control" placeholder="*********">
+                      <input type="password" name="pass" value="admin1234" class="form-control" >
                       <div class="input-group-append">
                         <span class="input-group-text">
                           <i class="mdi mdi-check-circle-outline"></i>

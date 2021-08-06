@@ -69,7 +69,10 @@ public class LoginController extends HttpServlet {
 			User usr = loginDAO.getUser(email, pass);
 			HttpSession session = request.getSession(true);
 			session.setAttribute("user", usr);
-			String page = this.getBasePath(request, response)+"template.jsp?id=da";
+			session.setAttribute("firstname",usr.getFirstname());
+			session.setAttribute("lastname", usr.getLastname());
+			session.setAttribute("email", usr.getEmail());
+			String page = this.getBasePath(request, response)+"dashboard?pageid=da";
 			response.sendRedirect(page);
 			//RequestDispatcher dispatcher = request.getRequestDispatcher("template.jsp?id=da");
             //dispatcher.forward(request, response);
@@ -85,8 +88,9 @@ public class LoginController extends HttpServlet {
 	protected void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		HttpSession session = request.getSession(false);
 		if(session != null) {
-			session.removeAttribute("user");
-		   RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/index.jsp");
+		   session.removeAttribute("user");
+		   session.invalidate();
+		   RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
            dispatcher.forward(request, response);
 		}
 		

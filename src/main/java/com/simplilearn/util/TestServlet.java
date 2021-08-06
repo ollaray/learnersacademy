@@ -19,6 +19,7 @@ import com.simplilearn.model.User;
 public class TestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Class cls = com.simplilearn.model.User.class;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -32,6 +33,10 @@ public class TestServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String page = this.getBasePath(request, response)+"template.jsp?id=table";
+		response.sendRedirect(page);
+		
+		/*
 		PrintWriter out = response.getWriter();
 		//User usr = new User();
 		String email = "admin@gmail.com";
@@ -54,9 +59,16 @@ public class TestServlet extends HttpServlet {
              RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
              dispatcher.forward(request, response);
              */
-		}
+		//}
+	
 		
 		
 	}
+	
+	 private String getBasePath(HttpServletRequest request, HttpServletResponse response) {
+	    	String path = request.getContextPath();
+	    	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	    	return basePath;
+	    }
 
 }

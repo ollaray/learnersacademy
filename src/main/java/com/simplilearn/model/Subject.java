@@ -1,20 +1,55 @@
 package com.simplilearn.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="subject")
+
 public class Subject {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
-	@Column(name="title", nullable=false)
+	
+	private int id;
 	private String title;
-	@Column(name="type",nullable=false)
 	private String subjectType;
+	
+	public Subject() {
+	}
+	
+
+	public Subject(String title, String subjectType) {
+		super();
+		this.title = title;
+		this.subjectType = subjectType;
+	}
+	
+	public Subject(int id, String title, String subjectType) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.subjectType = subjectType;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getSubjectType() {
+		return subjectType;
+	}
+	public void setSubjectType(String subjectType) {
+		this.subjectType = subjectType;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Subject [id=" + id + ", title=" + title + ", subjectType=" + subjectType + "]";
+	}
+	
+	
 }

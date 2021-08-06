@@ -1,35 +1,25 @@
 package com.simplilearn.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="user")
 public class User {
-	@Id
-	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
-	@Column(name="firstname")
+	private int id;
 	private String firstname;
-	@Column(name="lastname")
 	private String lastname;
-	@Column(name="email")
 	private String email;
-	@Column(name="password")
 	private String password;
-	@Column(name="gender")
 	private String gender;
+	private String created;
+	private String updated;
+	private String group;
+	private int status;
 	
 	public User() {
 		
 	}
 	
-	public User(Integer id, String firstname, String lastname, String email, String password, String gender) {
+	
+	public User(int id, String firstname, String lastname, String email, String password, String gender,
+			String created, String updated, String group, int status) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -37,19 +27,45 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.gender = gender;
+		this.created = created;
+		this.updated = updated;
+		this.group = group;
+		this.status = status;
 	}
-	public User(Integer id, String firstname, String lastname, String email, String gender) {
+	
+	public User(String firstname, String lastname, String email, String password, String gender,
+			String created, String updated, String group, int status) {
+		super();
+		
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+		this.password = password;
+		this.gender = gender;
+		this.created = created;
+		this.updated = updated;
+		this.group = group;
+		this.status = status;
+	}
+	
+	public User(int id, String firstname, String lastname, String email, String gender,
+			String created, String updated, String group, int status) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.email = email;
 		this.gender = gender;
+		this.created = created;
+		this.updated = updated;
+		this.group = group;
+		this.status = status;
 	}
+
 	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getFirstname() {
@@ -83,11 +99,48 @@ public class User {
 		this.gender = gender;
 	}
 
+	public String getCreated() {
+		return created;
+	}
+
+	public void setCreated(String created) {
+		this.created = created;
+	}
+
+	public String getUpdated() {
+		return updated;
+	}
+
+	public void setUpdated(String updated) {
+		this.updated = updated;
+	}
+
+	public String getGroup() {
+		return group;
+	}
+
+	public void setGroup(String group) {
+		this.group = group;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
-				+ ", password=" + password + ", gender=" + gender + "]";
+				+ ", password=" + password + ", gender=" + gender + ", created=" + created + ", updated=" + updated
+				+ ", group=" + group + ", status=" + status + "]";
 	}
+
+	
+
 	
 	
 	

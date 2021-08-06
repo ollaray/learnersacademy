@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,33 +9,42 @@
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="asset/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-   	-->
+     
     <!-- sidebar here -->
     <%@include file="includes/aside.html" %>
     <div class="main-panel">
       <!-- Navbar -->
-	<%@include file="includes/topnav.html" %>
+	<%@include file="includes/topnav.jsp" %>
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
+        <%! int a = 20; %>
         	<%
-        	String pageid = request.getParameter("id");
+        	String pageid = request.getParameter("pageid");
         		if(pageid != null && pageid.equals("da")){
         		
         	%>	
     			<%@include file="dashboard.jsp" %>
     		<% }else if(pageid !=null && pageid.equals("st")){ %>
-    			<%@include file="students.jsp" %>
+    			<%@include file="student-table.jsp" %>
+    		<% }else if(pageid !=null && pageid.equals("stf")){ %>
+    			<%@include file="student-form.jsp" %>
    			<% }else if(pageid !=null && pageid.equals("te")){ %>
-    			<%@include file="teachers.jsp" %>
+    			<%@include file="teacher-table.jsp" %>
+    		<% }else if(pageid !=null && pageid.equals("tef")){ %>
+    			<%@include file="teacher-form.jsp" %>
     		<% }else if(pageid !=null && pageid.equals("su")){ %>
-	    		<%@include file="subjects.jsp" %>
+	    		<%@include file="subject-table.jsp" %>
+	    	<% }else if(pageid !=null && pageid.equals("suf")){ %>
+	    		<%@include file="subject-form.jsp" %>
 	    	<% }else if(pageid !=null && pageid.equals("cl")){ %>
 	    		<%@include file="classlist.jsp" %>
+	    	<% }else if(pageid !=null && pageid.equals("clf")){ %>
+	    		<%@include file="class-form.jsp" %>
+	    	<% }else if(pageid !=null && pageid.equals("table")){ %>
+	    		<%@include file="table-template.jsp" %>
+	    		<% }else if(pageid !=null && pageid.equals("form")){ %>
+	    		<%@include file="form-template.jsp" %>
     		<% }else{ %>
     			<h1> PAGE NOT FOUND</h1>
     		<% } %>

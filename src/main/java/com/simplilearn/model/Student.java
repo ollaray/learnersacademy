@@ -1,38 +1,26 @@
 package com.simplilearn.model;
 
-import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="student")
 public class Student {
-	@Id
-	@Column(name="std_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+
+	private int id;
 	private String firstname;
 	private String lastname;
 	private String gender;
 	private String address;
 	private String email;
 	private String phone;
-	private Date created;
-	private Date updated;
-	
+	private String created;
+	private String updated;
+	private int classId;
 	
 	
 	public Student() {
 		
 	}
 
-	public Student(Integer id, String firstname, String lastname, String gender, String address, String email,
-			String phone, Date created, Date updated) {
+	//Master List
+	public Student(int id, String firstname, String lastname, String gender, String address, String email,
+			String phone, String created, String updated, int classId) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -43,11 +31,25 @@ public class Student {
 		this.phone = phone;
 		this.created = created;
 		this.updated = updated;
+		this.classId = classId;
+	}
+	//Update 
+	public Student(String firstname, String lastname, String gender, String address, String email, String phone,
+			 String updated, int classId) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.gender = gender;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+		this.updated = updated;
+		this.classId = classId;
 	}
 	
-	
+	//insert
 	public Student(String firstname, String lastname, String gender, String address, String email, String phone,
-			Date created, Date updated) {
+			String created, String updated, int classId) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -57,27 +59,25 @@ public class Student {
 		this.phone = phone;
 		this.created = created;
 		this.updated = updated;
+		this.classId = classId;
 	}
-
+	
 	
 
-
-	public Student(String firstname, String lastname, String gender, String address, String email, String phone,
-			Date updated) {
-		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.gender = gender;
-		this.address = address;
-		this.email = email;
-		this.phone = phone;
-		this.updated = updated;
+	public int getclassId() {
+		return classId;
 	}
 
-	public Integer getId() {
+
+
+	public void setclassId(int classId) {
+		this.classId = classId;
+	}
+
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getFirstname() {
@@ -116,24 +116,28 @@ public class Student {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Date getCreated() {
+	public String getCreated() {
 		return created;
 	}
-	public void setCreated(Date created) {
+	public void setCreated(String created) {
 		this.created = created;
 	}
-	public Date getUpdated() {
+	public String getUpdated() {
 		return updated;
 	}
-	public void setUpdated(Date updated) {
+	public void setUpdated(String updated) {
 		this.updated = updated;
 	}
+
+
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", gender=" + gender
 				+ ", address=" + address + ", email=" + email + ", phone=" + phone + ", created=" + created
-				+ ", updated=" + updated + "]";
+				+ ", updated=" + updated + ", classId=" + classId + "]";
 	}
+
+	
 	
 	
 	
